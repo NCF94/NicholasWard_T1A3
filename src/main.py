@@ -1,5 +1,7 @@
 print("Welcome to the Wellness App")
 
+file_name = "goals.csv"
+
 def menu():
     print("1. Enter 1 to view this weeks welness goals")
     print("2. Enter 2 to mark a goal as complete")
@@ -14,4 +16,21 @@ user_choice = ""
 
 while user_choice != "6":
     user_choice = menu()
+    
+    if(user_choice == "1"):
+        
+    elif(user_choice == "2"):
+        
+    elif(user_choice == "3"):
+        
+    elif(user_choice == "4"):
+        
+    elif(user_choice == "5"):
+        
+    elif(user_choice = "6"):
+        continue
+    
+    input("Press enter to continue.")
+    
+        
 print("Thanks for using the Wellness App, have a nice day")
