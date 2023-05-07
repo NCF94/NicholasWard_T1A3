@@ -1,3 +1,5 @@
+from wellness_functions import add_goals, remove_goals, view_goals, mark_goals, weekly_score
+
 print("Welcome to the Wellness App")
 
 file_name = "goals.csv"
@@ -18,14 +20,19 @@ while user_choice != "6":
     user_choice = menu()
     
     if(user_choice == "1"):
+        view_goals(file_name)
         
     elif(user_choice == "2"):
+        mark_goals(file_name)
         
     elif(user_choice == "3"):
+        add_goals(file_name)
         
     elif(user_choice == "4"):
+        remove_goals(file_name)
         
     elif(user_choice == "5"):
+        weekly_score(file_name)
         
     elif(user_choice = "6"):
         continue
