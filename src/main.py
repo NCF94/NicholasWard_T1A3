@@ -1,3 +1,5 @@
+print("Welcome to the Wellness App")
+
 def menu():
     print("1. Enter 1 to view this weeks welness goals")
     print("2. Enter 2 to mark a goal as complete")
@@ -9,3 +11,7 @@ def menu():
     return choice
 
 user_choice = ""
+
+while user_choice != "6":
+    user_choice = menu()
+print("Thanks for using the Wellness App, have a nice day")
