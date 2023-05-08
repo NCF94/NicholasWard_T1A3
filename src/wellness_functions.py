@@ -50,11 +50,44 @@ def remove_goals(file_name):
 
 def weekly_score(file_name):
     pass
-
-def body_weight():
-    pass
-
-def view_weight():
-    pass
 # function for the score, each goal listed marked as complete will = 1 point.
 # need to figure out how to make score out of number of items in the list
+
+
+def add_body_weight(weight_file_name):
+    view_weight(weight_file_name)
+    body_weight = input(
+        "Enter the week number and your body weight (e.g Week 1 - 80kg): ")
+    with open(weight_file_name, "a") as weight_file:
+        writer = csv.writer(weight_file)
+        writer.writerow([body_weight, "False"])
+
+
+def mark_weight(weight_file_name):
+    view_weight(weight_file_name)
+    week_weight = input("Enter the goal name you want to mark as complete: ")
+    weight_lists = []
+    with open(weight_file_name, "r") as weight_file:
+        reader = csv.reader(weight_file)
+        for row in reader:
+            if (week_weight == row[0]):
+                weight_lists.append([week_weight, "True"])
+            else:
+                weight_lists.append(row)
+    print(weight_lists)
+    with open(weight_file_name, "w") as weight_file:
+        writer = csv.writer(weight_file)
+        writer.writerows(weight_lists)
+
+
+def view_weight(weight_file_name):
+    with open(weight_file_name, "r") as weight_file:
+        reader = csv.reader(weight_file)
+        reader.__next__()
+        for row in reader:
+            if (row[1] == "True"):
+                print(
+                    f"Bodyweight: '{row[0]}' congratulations, this weeks weight is less then last week.")
+            else:
+                print(
+                    f"Bodyweight: '{row[0]}' this weeks weight is more then last weeks. Thats okay though, this is a long process")
