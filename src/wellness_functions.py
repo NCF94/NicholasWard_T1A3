@@ -1,5 +1,7 @@
 import csv
 
+from colored import fg, bg, attr
+
 
 def view_goals(file_name):
     with open(file_name, "r") as goal_file:
@@ -7,14 +9,14 @@ def view_goals(file_name):
         reader.__next__()
         for row in reader:
             if (row[1] == "True"):
-                print(f"Goal: {row[0]} is completed")
+                print(f"{fg('blue')}Goal:{attr('reset')} '{row[0]}' {fg('green')}is completed{attr('reset')}")
             else:
-                print(f"Goal: {row[0]} is not completed")
+                print(f"{fg('blue')}Goal:{attr('reset')} '{row[0]}' {fg('red')}is not completed{attr('reset')}")
 
 
 def mark_goals(file_name):
     view_goals(file_name)
-    goal_name = input("Enter the goal name you want to mark as complete: ")
+    goal_name = input(f"Enter the goal name you want to mark as complete: ")
     goal_lists = []
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
@@ -30,7 +32,7 @@ def mark_goals(file_name):
 
 
 def add_goals(file_name):
-    goal_name = input("Enter your weekly goal name: ")
+    goal_name = input(f"Enter your weekly goal name: ")
     with open(file_name, "a") as goal_file:
         writer = csv.writer(goal_file)
         writer.writerow([goal_name, "False"])
@@ -38,7 +40,7 @@ def add_goals(file_name):
 
 def remove_goals(file_name):
     view_goals(file_name)
-    goal_name = input("Enter the name of the goal you wish to remove: ")
+    goal_name = input(f"Enter the name of the goal you wish to remove: ")
     goal_lists = []
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
@@ -46,7 +48,9 @@ def remove_goals(file_name):
             if (goal_name != row[0]):
                 goal_lists.append(row)
     print(goal_lists)
-
+    with open(file_name, "w") as goal_file:
+        writer = csv.writer(goal_file)
+        writer.writerows(goal_lists)
 
 def weekly_score(file_name):
     pass
@@ -56,8 +60,7 @@ def weekly_score(file_name):
 
 def add_body_weight(weight_file_name):
     view_weight(weight_file_name)
-    body_weight = input(
-        "Enter the week number and your body weight (e.g Week 1 - 80kg): ")
+    body_weight = input(f"Enter the week number and your body weight (e.g Week 1 - 80kg): ")
     with open(weight_file_name, "a") as weight_file:
         writer = csv.writer(weight_file)
         writer.writerow([body_weight, "False"])
@@ -65,7 +68,7 @@ def add_body_weight(weight_file_name):
 
 def mark_weight(weight_file_name):
     view_weight(weight_file_name)
-    week_weight = input("Enter the goal name you want to mark as complete: ")
+    week_weight = input(f"Enter the week/weight you want to mark as lower than the previous week: ")
     weight_lists = []
     with open(weight_file_name, "r") as weight_file:
         reader = csv.reader(weight_file)
@@ -87,7 +90,7 @@ def view_weight(weight_file_name):
         for row in reader:
             if (row[1] == "True"):
                 print(
-                    f"Bodyweight: '{row[0]}' congratulations, this weeks weight is less then last week.")
+                    f"{fg('blue')}Bodyweight:{attr('reset')} '{row[0]}' {fg('green')}Congratulations, this weeks weight is less then last week! Keep going, you got this!{attr('reset')}")
             else:
                 print(
-                    f"Bodyweight: '{row[0]}' this weeks weight is more then last weeks. Thats okay though, this is a long process")
+                    f"{fg('blue')}Bodyweight:{attr('reset')} '{row[0]}' {fg('red')}This weeks weight is more then last weeks. Thats okay though, this is a long process{attr('reset')}")
