@@ -26,16 +26,16 @@ except FileNotFoundError as e:
     weight_file.close()
 
 def menu():
-    print(f"{fg('blue')}1. Enter 1 to view this weeks welness goals{attr('reset')}")
-    print(f"{fg('blue')}2. Enter 2 to mark a goal as complete{attr('reset')}")
-    print(f"{fg('blue')}3. Enter 3 to add your own weekly goal{attr('reset')}")
-    print(f"{fg('blue')}4. Enter 4 to remove a weekly goal{attr('reset')}")
-    print(f"{fg('blue')}5. Enter 5 to see your weekly score{attr('reset')}")
-    print(f"{fg('blue')}6. Enter 6 to input this weeks bodyweight{attr('reset')}")
-    print(f"{fg('blue')}7. Enter 7 to view previous weeks bodyweight{attr('reset')}")
-    print(f"{fg('blue')}8. Enter 8 to mark last weeks weight if it was lower than the previous weeks.{attr('reset')}")
-    print(f"{fg('blue')}9. Enter 9 to remove a bodyweight{attr('reset')}")
-    print(f"{fg('red')}10. Enter 10 to exit{attr('reset')}")
+    print(f"{fg('blue')}1. Enter 1 to VIEW this weeks wellness goals{attr('reset')}")
+    print(f"{fg('blue')}2. Enter 2 to MARK a goal as complete{attr('reset')}")
+    print(f"{fg('blue')}3. Enter 3 to ADD your own weekly goal{attr('reset')}")
+    print(f"{fg('blue')}4. Enter 4 to REMOVE a weekly goal{attr('reset')}")
+    print(f"{fg('blue')}5. Enter 5 to VIEW your weekly score{attr('reset')}")
+    print(f"{fg('105')}6. Enter 6 to ADD this weeks bodyweight{attr('reset')}")
+    print(f"{fg('105')}7. Enter 7 to VIEW previous weeks bodyweight{attr('reset')}")
+    print(f"{fg('105')}8. Enter 8 to MARK last weeks weight if it was lower than the previous weeks.{attr('reset')}")
+    print(f"{fg('105')}9. Enter 9 to REMOVE a bodyweight{attr('reset')}")
+    print(f"{fg('red')}10. Enter 10 to EXIT{attr('reset')}")
     choice = input(f"Enter your choice: ")
     return choice
 

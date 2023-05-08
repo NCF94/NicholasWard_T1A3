@@ -9,9 +9,9 @@ def view_goals(file_name):
         reader.__next__()
         for row in reader:
             if (row[1] == "True"):
-                print(f"{fg('blue')}Goal:{attr('reset')} '{row[0]}' {fg('green')}is completed{attr('reset')}")
+                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} {fg('green')}is completed{attr('reset')}")
             else:
-                print(f"{fg('blue')}Goal:{attr('reset')} '{row[0]}' {fg('red')}is not completed{attr('reset')}")
+                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} {fg('red')}is not completed{attr('reset')}")
 
 
 def mark_goals(file_name):
@@ -47,7 +47,7 @@ def remove_goals(file_name):
         for row in reader:
             if (goal_name != row[0]):
                 goal_lists.append(row)
-    print(goal_lists)
+    print(*goal_lists)
     with open(file_name, "w") as goal_file:
         writer = csv.writer(goal_file)
         writer.writerows(goal_lists)
