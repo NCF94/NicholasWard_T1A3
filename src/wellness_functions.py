@@ -53,7 +53,21 @@ def remove_goals(file_name):
         writer.writerows(goal_lists)
 
 def weekly_score(file_name):
-    pass
+    
+    score = 0
+    total = 0
+    with open(file_name, "r") as goal_file:
+        reader = csv.reader(goal_file)
+        for row in reader:
+            if (row[1] == "True"):
+                score += 1
+    with open(file_name, "r") as goal_file:
+        reader = csv.reader(goal_file)
+        reader.__next__()
+        for row in reader:
+            total +=1            
+    print(f"Your score this week is: {fg('green')}{score}/{total}{attr('reset')}")
+                
 # function for the score, each goal listed marked as complete will = 1 point.
 # need to figure out how to make score out of number of items in the list
 
