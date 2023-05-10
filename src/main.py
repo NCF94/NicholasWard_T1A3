@@ -53,7 +53,7 @@ def menu():
     except ValueError:
         print("That's not a number. Please enter a number between 1 and 10")
         
-  
+        
     
      
 user_choice = ""
