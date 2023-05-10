@@ -1,5 +1,7 @@
 from colored import fg, bg, attr
 
+from art import *
+
 from datetime import datetime
 
 from wellness_functions import add_goals, remove_goals, view_goals, mark_goals, weekly_score
@@ -93,3 +95,6 @@ while user_choice != 10:
     
         
 print(f"{fg('229')}Thanks for using the Wellness App, enjoy the rest of your {current_day}!{attr('reset')}")
+
+goodbye = text2art("Goodbye") # Return ASCII text (default font) and default chr_ignore=True 
+print(goodbye)

@@ -8,7 +8,7 @@ def add_body_weight(weight_file_name):
     date = datetime.today().strftime('%d/%m/%Y')
     
     view_weight(weight_file_name)
-    body_weight = input(f"Enter your body weight (e.g 80kg): ")
+    body_weight = input(f"Enter your body weight (e.g 80kgs): ")
     with open(weight_file_name, "a") as weight_file:
         writer = csv.writer(weight_file)
         writer.writerow([(date, body_weight), "False"])
