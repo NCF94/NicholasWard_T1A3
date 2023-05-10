@@ -1,10 +1,14 @@
 from colored import fg, bg, attr
 
+from datetime import datetime
+
 from wellness_functions import add_goals, remove_goals, view_goals, mark_goals, weekly_score
 
 from weight_functions import add_body_weight, view_weight, mark_weight, remove_weight
 
-print(f"{fg('229')}Welcome to the Wellness App!{attr('reset')}")
+current_day = datetime.today().strftime('%A')
+
+print(f"{fg('229')}Welcome to the Wellness App! We hope you are having a good {current_day}!{attr('reset')}")
 
 file_name = "goals.csv"
 weight_file_name = "weight.csv"
@@ -77,4 +81,4 @@ while user_choice != "10":
     input(f"Press enter to continue.")
     
         
-print(f"{fg('229')}Thanks for using the Wellness App, have a nice day!{attr('reset')}")
+print(f"{fg('229')}Thanks for using the Wellness App, enjoy the rest of your {current_day}!{attr('reset')}")
