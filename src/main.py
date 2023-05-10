@@ -40,43 +40,54 @@ def menu():
     print(f"{fg('105')}8. Enter 8 to MARK last weeks weight if it was lower than the previous weeks.{attr('reset')}")
     print(f"{fg('105')}9. Enter 9 to REMOVE a bodyweight{attr('reset')}")
     print(f"{fg('red')}10. Enter 10 to EXIT{attr('reset')}")
-    choice = input(f"Enter your choice: ")
-    return choice
-
+    try:
+        choice = int(input(f"Enter your choice: "))
+        
+        if 0 <= choice <=10:
+            return choice
+        else: 
+            print("That number isn't in the range. Please enter a number between 1 and 10")
+        
+    except ValueError:
+        print("That's not a number. Please enter a number between 1 and 10")
+    
+     
 user_choice = ""
 
-while user_choice != "10":
+while user_choice != 10:
     user_choice = menu()
     
-    if(user_choice == "1"):
+    if(user_choice == 1):
         view_goals(file_name)
         
-    elif(user_choice == "2"):
+    elif(user_choice == 2):
         mark_goals(file_name)
         
-    elif(user_choice == "3"):
+    elif(user_choice == 3):
         add_goals(file_name)
         
-    elif(user_choice == "4"):
+    elif(user_choice == 4):
         remove_goals(file_name)
         
-    elif(user_choice == "5"):
+    elif(user_choice == 5):
         weekly_score(file_name)
         
-    elif(user_choice == "6"):
+    elif(user_choice == 6):
         add_body_weight(weight_file_name)
         
-    elif(user_choice == "7"):
+    elif(user_choice == 7):
         view_weight(weight_file_name)
         
-    elif(user_choice == "8"):
+    elif(user_choice == 8):
         mark_weight(weight_file_name)
         
-    elif(user_choice == "9"):
+    elif(user_choice == 9):
         remove_weight(weight_file_name)
         
-    elif(user_choice == "10"):
+    elif(user_choice == 10):
         continue
+    
+    
     
     input(f"Press enter to continue.")
     
