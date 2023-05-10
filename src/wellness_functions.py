@@ -68,7 +68,6 @@ def weekly_score(file_name):
             total +=1            
     print(f"Your score this week is: {fg('green')}{score}/{total}{attr('reset')}")
                 
-# function for the score, each goal listed marked as complete will = 1 point.
-# need to figure out how to make score out of number of items in the list
+
 
 

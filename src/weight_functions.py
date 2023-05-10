@@ -16,7 +16,7 @@ def add_body_weight(weight_file_name):
 
 def mark_weight(weight_file_name):
     view_weight(weight_file_name)
-    week_weight = input(f"Enter the week/weight you want to mark as lower than the previous week: ")
+    week_weight = input(f"Enter the week/weight you want to mark as lower than the previous week eg ('10/05/2023', '70kgs'): ")
     weight_lists = []
     with open(weight_file_name, "r") as weight_file:
         reader = csv.reader(weight_file)
