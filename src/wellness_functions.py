@@ -32,10 +32,14 @@ def mark_goals(file_name):
 
 
 def add_goals(file_name):
-    goal_name = input(f"Enter your weekly goal name: ")
-    with open(file_name, "a") as goal_file:
-        writer = csv.writer(goal_file)
-        writer.writerow([goal_name, "False"])
+    goal_name = input(f"Enter your goal name: ")
+    if len(goal_name.strip()) == 0:
+        print("The goal name input is empty")
+        
+    else:
+        with open(file_name, "a") as goal_file:
+            writer = csv.writer(goal_file)
+            writer.writerow([goal_name, "False"])
 
 
 def remove_goals(file_name):
