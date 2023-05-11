@@ -2,27 +2,30 @@ import csv
 
 from colored import fg, bg, attr
 
+from datetime import datetime
+
 
 def view_goals(file_name):
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
         reader.__next__()
         for row in reader:
-            if (row[1] == "True"):
-                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} {fg('green')}is completed{attr('reset')}")
+            if (row[2] == "True"):
+                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} - {row[1]} {fg('green')}is completed{attr('reset')}")
             else:
-                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} {fg('red')}is not completed{attr('reset')}")
+                print(f"{fg('blue')}Goal:{attr('reset')} {row[0]} - {row[1]} {fg('red')}is not completed{attr('reset')}")
 
 
 def mark_goals(file_name):
+    date = datetime.today().strftime('%d/%m/%Y')
     view_goals(file_name)
     goal_name = input(f"Enter the goal name you want to mark as complete: ")
     goal_lists = []
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
         for row in reader:
-            if (goal_name == row[0]):
-                goal_lists.append([goal_name, "True"])
+            if (goal_name == row[1]):
+                goal_lists.append([date, goal_name, "True"])
             else:
                 goal_lists.append(row)
     print(goal_lists)
@@ -32,6 +35,7 @@ def mark_goals(file_name):
 
 
 def add_goals(file_name):
+    date = datetime.today().strftime('%d/%m/%Y')
     goal_name = input(f"Enter your goal name: ")
     if len(goal_name.strip()) == 0:
         print("The goal name input is empty")
@@ -39,7 +43,7 @@ def add_goals(file_name):
     else:
         with open(file_name, "a") as goal_file:
             writer = csv.writer(goal_file)
-            writer.writerow([goal_name, "False"])
+            writer.writerow([date, goal_name, "False"])
 
 
 def remove_goals(file_name):
@@ -49,7 +53,7 @@ def remove_goals(file_name):
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
         for row in reader:
-            if (goal_name != row[0]):
+            if (goal_name != row[1]):
                 goal_lists.append(row)
     print(*goal_lists)
     with open(file_name, "w") as goal_file:
@@ -63,7 +67,7 @@ def weekly_score(file_name):
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
         for row in reader:
-            if (row[1] == "True"):
+            if (row[2] == "True"):
                 score += 1
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)

@@ -20,7 +20,7 @@ try:
     goals_file.close()
 except FileNotFoundError as e:
     goals_file = open(file_name, "w")
-    goals_file.write("title,completed\n") 
+    goals_file.write("date,title,completed\n") 
     goals_file.close() 
     
 try: 
@@ -28,7 +28,7 @@ try:
     weight_file.close()  
 except FileNotFoundError as e:
     weight_file = open(weight_file_name, "w")
-    weight_file.write("weight,pass/fail\n") 
+    weight_file.write("date,weight,pass/fail\n") 
     weight_file.close()
 
 def menu():
