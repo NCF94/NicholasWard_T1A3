@@ -66,15 +66,17 @@ def weekly_score(file_name):
     total = 0
     with open(file_name, "r") as goal_file:
         reader = csv.reader(goal_file)
-        for row in reader:
-            if (row[2] == "True"):
-                score += 1
-    with open(file_name, "r") as goal_file:
-        reader = csv.reader(goal_file)
         reader.__next__()
         for row in reader:
-            total +=1            
-    print(f"Your score this week is: {fg('green')}{score}/{total}{attr('reset')}")
+            total +=1
+            if (row[2] == "True"):
+                score += 1     
+            
+    total_score = f"{score}/{total}"
+    print(f"Your score this week is: {fg('green')}{total_score}{attr('reset')}")
+    return total_score
+
+    
                 
 
 
