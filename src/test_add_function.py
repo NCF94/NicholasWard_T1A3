@@ -2,12 +2,6 @@ import pytest
 import csv
 from wellness_functions import add_goals
 
-
-
-
-
-
-
 # This is my first test.
 # The purpose of this test is to test that the add_goals function correctly adds a new line (new goal) to the goals.csv file.
 # For the purpose of testing, this test uses a test file called "test_add.csv"
